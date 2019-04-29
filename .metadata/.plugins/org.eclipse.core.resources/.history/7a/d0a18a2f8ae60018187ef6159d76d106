@@ -1,0 +1,53 @@
+package tetris;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
+public class Shape {
+	private BufferedImage block;
+	private int[][] coords;
+	private Board board;
+	private int deltaX = 0;
+	private int x, y;
+	private long time, lastTime;
+	private int normalSpeed = 600;
+	private int speedDown = 10;
+	
+	public Shape(BufferedImage block, int[][] coords, Board board) {
+		this.block = block;
+		this.coords = coords;
+		this.board = board;
+		
+		time = 0;
+		lastTime = 0;
+		
+		x = 4;
+		y = 0;
+	}
+	
+	public void update() {
+		
+		time += System.currentTimeMillis();
+		
+		if(!(x + deltaX + coords[0].length > 10) && !(x + deltaX < 0) ) {
+			x += deltaX;
+		}
+				
+		deltaX = 0;
+	}
+	
+	public void render(Graphics gr) {
+		for(int row = 0; row < coords.length; row++) {
+			for(int col = 0; col < coords[row].length; col++) {
+				if(coords[row][col] != 0) {
+					gr.drawImage(block, col * board.getBlockSize() + x * board.getBlockSize(),
+								row * board.getBlockSize() + y * board.getBlockSize(), null);
+				}
+			}
+		}
+	}
+	
+	public void setDeltaX(int deltaX) {
+		this.deltaX = deltaX;
+	}
+}

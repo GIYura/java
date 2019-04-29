@@ -1,0 +1,15 @@
+package tetris;
+
+import javax.swing.JFrame;
+
+public class Window {
+	private JFrame window;
+
+	public Window() {
+		this.window = new JFrame("Tetris");
+		this.window.setSize(200, 200);
+	}
+	
+	
+	
+}

@@ -1,0 +1,17 @@
+package tetris;
+
+import javax.swing.JFrame;
+
+public class Window {
+	private JFrame window;
+
+	public Window() {
+		window = new JFrame("Tetris");
+		window.pack();
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setLocationRelativeTo(null);
+		window.setResizable(false);
+		window.setSize(400, 600);
+		window.setVisible(true);	
+	}
+}

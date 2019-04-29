@@ -1,0 +1,16 @@
+package tutorial_11;
+
+public class Appl {
+	public static void main(String[] args) {
+		String[] fruits = new String[3];
+		
+		fruits[0] = "apple";
+		fruits[1] = "orange";
+		fruits[2] = "kiwi";
+		
+		String[] vegs = {"beet", "carrot", "cabage", "potato"};
+		for (String veg : vegs) {
+			System.out.println(veg);
+		}
+	}
+}

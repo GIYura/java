@@ -1,0 +1,33 @@
+package tetris;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class Window {
+	private JFrame window;
+	private static final int WIDTH = 300, HEIGHT = 630;
+	private Board board;
+	private JTextField field;
+	
+	public Window() {
+		window = new JFrame("TETRIS");
+		field = new JTextField();
+		field.setText("0");
+		field.setSize(20, 10);
+		
+		window.pack();
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setLocationRelativeTo(null);
+		window.setResizable(false);
+		window.setSize(WIDTH, HEIGHT);
+		
+		board = new Board();
+		
+		window.add(board);
+		window.add(field);
+		
+		window.addKeyListener(board);
+		
+		window.setVisible(true);	
+	}
+}

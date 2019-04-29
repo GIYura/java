@@ -1,0 +1,7 @@
+package hello;
+
+import java.util.Scanner;
+
+public class Appl {
+	Scanner input;
+}

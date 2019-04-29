@@ -1,0 +1,31 @@
+package tetris;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
+
+public class Board extends JPanel{
+
+	private BufferedImage blocks;
+	private final int blockSize = 30;
+	private final int boardWidth = 10, boardHeight = 20;
+	private int[][] board = new int[boardWidth][boardHeight];
+	
+	public Board() {
+		try {
+			blocks = ImageIO.read(Board.class.getResource("/blocks.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void paintComponent(Graphics gr) {
+		super.paintComponent(gr);
+		for(int i = 0; i < boardHeight; i++) {
+			gr.drawLine(0, i * blockSize, boardWidth * blockSize, i * blockSize);
+		}
+	}
+}
